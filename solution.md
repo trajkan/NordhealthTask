@@ -11,12 +11,12 @@ the answers so that they follow similar structure
 - **Input**: A JSON file containing consultation data.
 - **Ouput**: A JSON file with the discharge note
 - **LLM**: I have chosen to use the Huggun Face APIs and more specifically a DeepSeek model (DeepSeek-V3-0324)
-- **Environment**: The script should read API tokens from a .env
+- **Environment**: The script should read API tokens from a .env file
 - **Ouput files**: For a given json file generate a corresponding json file in the folder "solution/"
 
 ## Plan for solving the task
 1. Read consultation data from the input JSON file
-2. Retrive the API key from config-file
+2. Retrive the API key from a local .env-file (not commited to the repo)
 3. Construct a prompt from the consultantion data.
 4. Send the prompt to the LLM through the HuggingFace API
 5. Save the ouput to a JSON file stored in solutions folder.
