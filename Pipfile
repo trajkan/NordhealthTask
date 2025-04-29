@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 transformers = "*"
+pytest = "*"
 
 [dev-packages]
 ipykernel = "*"
