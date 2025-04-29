@@ -64,3 +64,11 @@ I built a modular Python script with the following components:
 5.
     I inlcuded a JSON export function, to prepare for integration with APIs
 
+
+## Bonus: Testing
+As a bonus, I added a test suite using `pytest` to validate the core functionality:
+
+- Tested that the `find_equal_sum_pairs` function returns the correct grouped sums.
+- Checked that the JSON formatting returns valid structured data.
+
+This makes the project easier to extend and ensures correctness when refactoring.
