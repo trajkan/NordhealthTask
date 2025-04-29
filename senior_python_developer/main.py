@@ -7,6 +7,11 @@ def find_equal_sum_pairs(arr: list) -> list:
     Finds all pairs of numbers in the array that have the same sum and
     groups them by the sum
     """
+    if not isinstance(arr, list) or not all(isinstance(x, int) for x in arr):
+        raise ValueError("Input must be a list of integers.")
+    if len(arr) < 2:
+        raise ValueError("Input array must contain at least two elements.")
+    
     sum_to_pairs = defaultdict(list)
     for a, b in combinations(arr, 2):
         pair = (a, b)
@@ -21,6 +26,9 @@ def print_equal_sum_pairs(sum_to_pairs: list) -> None:
     """
     Prints the pairs of numbers that have the same sum
     """
+    if not isinstance(sum_to_pairs, list):
+        raise ValueError("Input must be a list of (sum, list_of_pairs) tuples.")
+    
     for s, pairs in sum_to_pairs:
         pair_strings = " ".join(f'{pair}' for pair in pairs )
         print(f'Pairs: {pair_strings} have sum {s}')
@@ -29,8 +37,14 @@ def get_equal_sum_pairs_json(sum_to_pairs: list) -> list:
     """
     Returns the pairs of numbers that have the same sum in JSON format
     """
+    if not isinstance(sum_to_pairs, list):
+        raise ValueError("Input must be a list of (sum, list_of_pairs) tuples.")
+    
     result = [{'sum': s, 'pairs': [pair for pair in pairs]} for s, pairs in sum_to_pairs]
-    return json.dumps(result, indent=4)
+    try:
+        return json.dumps(result, indent=4)
+    except TypeError as e:
+        raise ValueError(f"Error converting to JSON: {e}")
 
 
 if __name__ == "__main__":
